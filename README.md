@@ -1,6 +1,10 @@
 # configure-apache
 Script para configuração do apache2
 
+## Download
+```
+$ wget https://raw.githubusercontent.com/denissonleal/configure-apache/master/configure-apache.php
+```
 
 ## Using
 
