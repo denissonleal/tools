@@ -1,18 +1,33 @@
 # configure-apache
-Script para configuração do apache2
+
+Script for apache2 configuration
 
 ## Download
+
+```sh
+wget https://raw.githubusercontent.com/denissonleal/configure-apache/master/configure-apache.php -O configure-apache
 ```
-$ wget https://raw.githubusercontent.com/denissonleal/configure-apache/master/configure-apache.php
+
+or with python
+
+```sh
+wget https://raw.githubusercontent.com/denissonleal/configure-apache/master/configure-apache.py -O configure-apache
+```
+
+## Configuration
+
+```sh
+sudo chmod +x configure-apache
 ```
 
 ## Using
 
-```
-$ sudo php configure-apache.php {name} {path} {?domain}
+```sh
+sudo ./configure-apache {name} {path} {?domain}
 ```
 
-exemple:
-```
-$ sudo php configure-apache.php exemplo /home/denissonleal/exemplo leal.app
+## Exemple
+
+```sh
+sudo ./configure-apache exemplo /home/denissonleal/exemplo leal.app
 ```
