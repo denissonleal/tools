@@ -1,5 +1,6 @@
+#!/usr/bin/env php
 <?php
-	// var_dump($argv);
+
 	if ( count($argv) < 3 ) {
 		echo "ERROR: {name} {path} {?domain}\n\n";
 		exit;
@@ -43,23 +44,22 @@
 		RewriteCond %{REQUEST_FILENAME} !-f
 		RewriteCond %{REQUEST_FILENAME} !-d
 		RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+		RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 	</Directory>
 
 
-	ErrorLog /tmp/$name.log
-	CustomLog /tmp/$name.log combined
+	ErrorLog \${APACHE_LOG_DIR}/$name-error.log
+	CustomLog \${APACHE_LOG_DIR}/$name.log combined
 
 </VirtualHost>
 ";
 
+
 	file_put_contents($file_apache, $conf);
 
 	exec("ln -s $path $link");
-
 	exec("a2enmod rewrite");
 	exec("a2ensite $name.conf");
 	exec("service apache2 restart");
-
-	file_put_contents("/etc/hosts", "\n127.0.0.1	$domain\n", FILE_APPEND);
 
 	echo "Site configurado...\n\n";
