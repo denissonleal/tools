@@ -5,13 +5,13 @@ Script for apache2 configuration
 ## Download
 
 ```sh
-wget https://raw.githubusercontent.com/denissonleal/configure-apache/master/configure-apache.php -O configure-apache
+wget https://raw.githubusercontent.com/denissonleal/tools/master/configure-apache/configure-apache.php -O configure-apache
 ```
 
 or with python
 
 ```sh
-wget https://raw.githubusercontent.com/denissonleal/configure-apache/master/configure-apache.py -O configure-apache
+wget https://raw.githubusercontent.com/denissonleal/tools/master/configure-apache/configure-apache.py -O configure-apache
 ```
 
 ## Configuration
