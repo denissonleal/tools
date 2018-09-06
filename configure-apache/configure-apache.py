@@ -42,6 +42,7 @@ conf = """
 	</Directory>
 
 	<Directory /var/www/{name}>
+		AllowOverride Options
 		Options -Indexes +FollowSymLinks +MultiViews +Includes
 		Order allow,deny
 		allow from all
