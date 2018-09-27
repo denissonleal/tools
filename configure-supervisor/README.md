@@ -24,5 +24,5 @@ sudo ./configure-supervison {path}
 ## Exemple
 
 ```sh
-sudo ./configure-supervison exemplo /home/denissonleal/exemplo leal.app
+sudo ./configure-supervison /home/denissonleal/exemplo
 ```
