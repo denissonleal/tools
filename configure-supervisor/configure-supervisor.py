@@ -9,8 +9,7 @@ if(numprocs == ''):
 	numprocs = 1
 
 path_default = sys.argv[1].split('/')
-# print('The program name by default is',path_default[-1])
-name = input('What is the name of the program?[{}]:'.format(path_default[-1]) )
+name = input('What is the name of the program?[{}]:'.format(path_default[-1]))
 if(name == ''):
 	name = path_default[-1]
 
@@ -22,9 +21,9 @@ path = sys.argv[1]
 
 path_supervisor = "/etc/supervisor/conf.d/{}.conf".format(name)
 
-# if os.path.exists(path_supervisor):
-# 	print("ERROR: file {} exists\n\n".format(path_supervisor))
-# 	exit(1)
+if os.path.exists(path_supervisor):
+	print("ERROR: file {} exists\n\n".format(path_supervisor))
+	exit(1)
 
 conf = """
 
@@ -42,10 +41,9 @@ stdout_logfile=/tmp/{name}.log
 
 print(conf)
 
+with open(path_supervisor, 'w') as file:
+	file.write(conf)
 
-# with open(path_supervisor, 'w') as file:
-# 	file.write(conf)
-
-# subprocess.check_call(['supervisorctl', 'update'])
+subprocess.check_call(['supervisorctl', 'update'])
 
 print("Site configurado...\n\n")
