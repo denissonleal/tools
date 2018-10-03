@@ -1,6 +1,6 @@
 # configure-apache
 
-Script for apache2 configuration
+Automated scripts for apache2 quick configuration
 
 ## Download
 
@@ -26,7 +26,9 @@ sudo chmod +x configure-apache
 sudo ./configure-apache {name} {path} {?domain}
 ```
 
-## Exemple
+NOTE: `path` must be an absolute path
+
+## Example
 
 ```sh
 sudo ./configure-apache exemplo /home/denissonleal/exemplo leal.app
