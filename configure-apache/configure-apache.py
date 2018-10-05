@@ -25,7 +25,7 @@ if os.path.exists(path_link):
 	print("ERROR: file {} exists\n\n".format(path_link))
 	exit(1)
 
-domain = "{}.{}".format(name, args['domain'] if len(args.domain) > 3 else 'app')
+domain = "{}.{}".format(name, args['domain'] if args.domain else 'app')
 
 {'domain': domain, 'name': name}
 
