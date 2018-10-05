@@ -25,7 +25,7 @@ if os.path.exists(path_link):
 	print("ERROR: file {} exists\n\n".format(path_link))
 	exit(1)
 
-domain = "{}.{}".format(name, args['domain'] if len(args.domain) > 3 else 'app');
+domain = "{}.{}".format(name, args['domain'] if len(args.domain) > 3 else 'app')
 
 {'domain': domain, 'name': name}
 
@@ -67,9 +67,9 @@ conf = """
 with open(path_apache, 'w') as file:
 	file.write(conf)
 
-subprocess.check_call(['ln', '-s', path, path_link]);
-subprocess.check_call(['a2enmod', 'rewrite']);
-subprocess.check_call(['a2ensite', '{}.conf'.format(name)]);
-subprocess.check_call(['service', 'apache2', 'restart']);
+subprocess.check_call(['ln', '-s', path, path_link])
+subprocess.check_call(['a2enmod', 'rewrite'])
+subprocess.check_call(['a2ensite', '{}.conf'.format(name)])
+subprocess.check_call(['service', 'apache2', 'restart'])
 
-print("Site configurado...\n\n");
+print("Site configurado...\n\n")
