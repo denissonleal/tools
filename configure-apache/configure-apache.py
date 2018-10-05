@@ -20,7 +20,7 @@ if os.path.exists(path_apache):
 	print("ERROR: file {} exists\n\n".format(path_apache))
 	exit(1)
 
-path_link = "/var/www/{}".format(name);
+path_link = "/var/www/{}".format(name)
 if os.path.exists(path_link):
 	print("ERROR: file {} exists\n\n".format(path_link))
 	exit(1)
