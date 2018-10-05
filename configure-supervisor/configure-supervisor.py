@@ -1,23 +1,26 @@
 #!/usr/bin/python3
 
 import sys
+import argparse
 import os.path
 import subprocess
 
-if len(sys.argv) < 2:
-	print('ERROR: {path} {?domain}\n')
-	exit(1)
+parser = argparse.ArgumentParser(description='Setup the supervisorctl.')
+parser.add_argument('path', help='Variável de ambiente PATH')
+
+args = parser.parse_args()
+
+path = args.path
+
 
 numprocs = input('What is the number of processes?[1]: ')
 if(numprocs == ''):
 	numprocs = 1
 
-path_default = sys.argv[1].split('/')
+path_default = path.split('/')
 name = input('What is the name of the program?[{}]:'.format(path_default[-1]))
 if(name == ''):
 	name = path_default[-1]
-
-path = sys.argv[1]
 
 path_supervisor = "/etc/supervisor/conf.d/{}.conf".format(name)
 
