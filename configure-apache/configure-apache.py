@@ -1,15 +1,18 @@
 #!/usr/bin/python3
 
-import sys
+import argparse
 import os.path
 import subprocess
 
-if len(sys.argv) < 3:
-	print('ERROR: {name} {path} {?domain}\n')
-	exit(1)
+parser = argparse.ArgumentParser(description='Configura o servidor Apache.')
+parser.add_argument('name', help='Diretório do projeto')
+parser.add_argument('path', help='Variável de ambiente PATH')
+parser.add_argument('-d', '--domain', help='Domínio HTTP da aplicação')
 
-name = sys.argv[1]
-path = sys.argv[2]
+args = parser.parse_args()
+
+name = args.name
+path = args.path
 
 path_apache = "/etc/apache2/sites-available/{}.conf".format(name)
 
@@ -22,7 +25,7 @@ if os.path.exists(path_link):
 	print("ERROR: file {} exists\n\n".format(path_link))
 	exit(1)
 
-domain = "{}.{}".format(name, sys.argv[3] if len(sys.argv) > 3 else 'app');
+domain = "{}.{}".format(name, args['domain'] if len(args.domain) > 3 else 'app');
 
 {'domain': domain, 'name': name}
 
